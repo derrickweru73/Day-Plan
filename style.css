@@ -10,4 +10,12 @@ body {
     margin: 0;
 }
 
- 
+
+/* Grid */
+.dashboard {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 20px;
+    width: 90%;
+    max-width: 800px;
+}
