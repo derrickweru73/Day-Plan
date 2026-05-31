@@ -43,3 +43,13 @@ label {
     margin-bottom: 5px;
     font-weight: bold;
 }
+
+/* Style in the input part */
+input[type="text"],
+input[type="number"] {
+    width: 100%;
+    padding: 10px;
+    border: 1px solid black;
+    border-radius: 5px;
+    box-sizing: border-box;
+}
