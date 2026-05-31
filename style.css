@@ -64,3 +64,13 @@ button {
     font-weight: bold;
     margin-top: 10px;
 }
+
+.btn-submit {
+    background-color: blue;
+    color: white;
+}
+
+.btn-reset {
+    background-color: red;
+    color: white;
+}
