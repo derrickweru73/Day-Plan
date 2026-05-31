@@ -27,3 +27,13 @@ body {
     border: 2px solid black;
     border-radius: 10px;
 }
+
+/* Header color  */
+h2 {
+    margin-top: 0;
+    color: blue;
+}
+
+.form-group {
+    margin-bottom: 15px;
+}
