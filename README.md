@@ -1,8 +1,8 @@
-# Day Craft
+# Day Plan
 
 ## Project Overview
  
-A minimalist, single-page web dashboard designed to capture, process, and retain basic user profile metrics while offering daily inspiration.
+A single-page web dashboard designed to capture, process, and retain basic user profile metrics while offering daily inspiration.
 
 ---
 
@@ -39,10 +39,10 @@ A minimalist, single-page web dashboard designed to capture, process, and retain
 ---
 
 ## Visual Identity
-*Brand Name:* PesaCash chapchap  
-*Primary Color:* white (#22C55E) – trust and growth  
-*Secondary Color:* Blue (#2563EB) – reliability  
-*Accent Color:* White (#FFFFFF) – clean design  
+*Brand Name:*  Day craft 
+*Primary Color:* white (#22C55E)   
+*Secondary Color:* Blue (#2563EB) 
+*Accent Color:* White (#FFFFFF) 
 ---
 
 ## Typography
@@ -72,7 +72,7 @@ Gitbash
 Open folder:
 
 bash
-cd  Day Craft
+cd  Day plan
 
 code .
 ---
