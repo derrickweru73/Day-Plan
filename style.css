@@ -19,3 +19,11 @@ body {
     width: 90%;
     max-width: 800px;
 }
+
+/* card  */
+.card {
+    background-color: white;
+    padding: 30px;
+    border: 2px solid black;
+    border-radius: 10px;
+}
