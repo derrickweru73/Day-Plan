@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Day Plan Workspace</title>
+     <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+    <div class="dashboard">
+        <!-- Input Form Card -->
+        <div class="card">
+            <h2>Day Plan Workspace</h2>
+            <form id="userForm">
+                <div class="form-group">
+                    <label for="userName">Crafter Name</label>
+                    <input type="text" id="userName" required placeholder= >
+                </div>
+                <div class="form-group">
+                    <label for="userAge">Current Age (Years)</label>
+                    <input type="number" id="userAge" min="0" max="120" required placeholder="25">
+                </div>
+                <button type="submit" class="btn-submit">Craft My Dashboard</button>
+            </form>
+            <button id="resetBtn" class="btn-reset hidden">Reset Workspace</button>
+        </div>
+
+        <!-- Output Metric Dashboard Card -->
+        <div class="card">
+            <h2>Your Metrics</h2>
+            <div id="welcomeMessage">
+                <p>Welcome to DayPlan. Enter your data to begin designing your day.</p>
+            </div>
+            
+            <div id="dashboardContent" class="hidden">
+                <h3 id="greeting">Hello!</h3>
+                
+                <p>Total months you have spent crafting your life:</p>
+                <div class="stat-number" id="ageDisplayParent"><span id="ageMonths">0</span> Months</div>
+                
+                <h4>Daily Mantras for You:</h4>
+                <ul id="quoteContainer" class="quote-list"></ul>
+            </div>
+        </div>
+    </div>
+
+    <!-- Links your external JavaScript logic file -->
+    <script src="script.js"></script>
+</body>
+</html>
