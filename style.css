@@ -74,3 +74,27 @@ button {
     background-color: red;
     color: white;
 }
+
+/* hide containers */
+.hidden {
+    display: none;
+}
+
+.stat-number {
+    font-size: 2rem;
+    font-weight: bold;
+    margin-bottom: 15px;
+}
+
+.quote-list {
+    padding-left: 0;
+    list-style: none;
+}
+
+/* items lists configuration */
+.quote-item {
+    font-style: italic;
+    border-left: 4px solid gray;
+     padding-left: 10px;
+    margin-bottom: 10px;
+}
