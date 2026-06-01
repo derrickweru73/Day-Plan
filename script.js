@@ -1,104 +1,75 @@
-// ELEMENTS SELECTION
-const userForm = document.getElementById('userForm');
-const userNameInput = document.getElementById('userName');
-const userAgeInput = document.getElementById('userAge');
+alert("Script is connected")
+// 1. Grab your existing HTML elements
+const craftBtn = document.getElementById('craftBtn');
 const resetBtn = document.getElementById('resetBtn');
+const metricsOutput = document.getElementById('metricsOutput')
 
-const welcomeMessage = document.getElementById('welcomeMessage');
-const dashboardContent = document.getElementById('dashboardContent');
-const greeting = document.getElementById('greeting');
-const ageMonthsDisplay = document.getElementById('ageMonths');
-const ageDisplayParent = document.getElementById('ageDisplayParent');
-const quoteContainer = document.getElementById('quoteContainer');
+// 2. Add the Event Listener for the Form Submission
+craftBtn.addEventListener('click', function(e) {
+    e.preventDefault();
+    const nameInput = document.getElementById("name").value;
+    const ageInput = document.getElementById ("age").value;
 
-const motivationalMessage = "Craft your day with intention. Consistency builds excellence!";
-
- document.addEventListener('DOMContentLoaded', initializeApplication);
-
-function initializeApplication() {
-     const savedName = localStorage.getItem('dc_name');
-    const savedAge = localStorage.getItem('dc_age');
-
-     if (savedName && savedAge) {
-         processUserDashboard(savedName, parseInt(savedAge));
-    } else {
-        showCleanInputForm();
+    document.getElementById("output").innerHTML = `welcome ${name}, Age: ${age}`
+    // Validation: stop if inputs are empty
+    if (!nameInput || !ageInput) {
+        alert("Please enter both your name and age!");
+        return;
     }
-}
+    const nameValue = nameInput.value.trim();
+    const ageValue = parseInt(ageInput.value);
 
 
-// CORE FUNCTIONS
- 
-userForm.addEventListener('submit', function(event) {
-     event.preventDefault(); 
+    // [FEATURE 1]: Save data to localStorage
+    localStorage.setItem('crafterName', nameValue);
+    localStorage.setItem('crafterAge', ageValue);
 
-     const inputName = userNameInput.value.trim();
-    const inputAge = parseInt(userAgeInput.value);
-
-     localStorage.setItem('dc_name', inputName);
-    localStorage.setItem('dc_age', inputage.toString()); /* .toString() safely converts our number back to text for storage. */
-
-    processUserDashboard(inputName, inputAge);
+    // Run the dashboard compiler
+    compileDashboard(nameValue, ageValue);
 });
 
-function calculateAgeInMonths(ageInYears) {
-    return ageInYears * 12; /* Simple calculation logic function returning the computed calculation product. */
-}
+// 3. Core Function to Generate the Required Content
+function compileDashboard(name, age) {
+    const metricsOutput = document.getElementById('metricsOutput');
 
-function processUserDashboard(name, ageInYears) {
-    const totalMonths = calculateAgeInMonths(ageInYears);
+    // [FEATURE 4]: Calculate age in months
+    const ageInMonths = age * 12;
 
-     if (ageInYears < 18) {
-         greeting.textContent = `Welcome, Apprentice Crafter ${name}!`;
-         ageDisplayParent.style.color = "green"; 
+    // [FEATURE 2]: Conditional statement for content access (Age 18 check)
+    let accessMessage = "";
+    if (age >= 18) {
+        accessMessage = " Access Granted: You are old enough to access premium adult content.";
     } else {
-        greeting.textContent = `Welcome Back, Master Crafter ${name}!`;
-         ageDisplayParent.style.color = "purple"; 
+        accessMessage = " Access Restricted: You are too young for adult content.";
     }
 
-     ageMonthsDisplay.textContent = totalMonths.toLocaleString();
-
-     renderRepeatedMessages(3);
-
-    // .classList manipulation adds or strips CSS visibility rules to hide the input card and open the results panel. 
-    welcomeMessage.classList.add('hidden');
-    dashboardContent.classList.remove('hidden');
-    resetBtn.classList.remove('hidden');
-    userForm.classList.add('hidden');
-}
-
-function renderRepeatedMessages(repeatCount) {
-    // .innerHTML  completely clears out old list items before the loop runs so text doesn't stack up infinitely. 
-    quoteContainer.innerHTML = "";
-
-    // This for-loop starts counter "i" at 1, checks if it is <= 3, runs the code, and adds 1 to "i" (i++) every turn. 
-    for (let i = 1; i <= repeatCount; i++) {
-         const listItem = document.createElement('li');
-        
-         listItem.classList.add('quote-item');
-        
-         listItem.textContent = `Name $(i): ${motivationalMessage}`;
-        
-         quoteContainer.appendChild(listItem);
+    // [FEATURE 5]: Use a loop to generate a motivational quote 5 times
+    let quotesHTML = "";
+    const motivationalQuote = " 'The secret of getting ahead is getting started.'";
+    
+    for (let i = 1; i <= 5; i++) {
+        quotesHTML += `<p class="quote-item">${i}. ${motivationalQuote}</p>`;
     }
+
+    // [FEATURE 3]: Update the UI cleanly using Template Literals
+    metricsOutput.innerHTML = 
+        "<div class='results-container'>" +
+        "<h3>Hello, " + name + "! Welcome to your workspace.</h3>" +
+        "<hr>" +
+        "<p><strong>Your Age Profile:</strong> " + age + " years old (" + ageInMonths.toLocaleString() + " months old)</p>" +
+        "<p class='status-msg'>" + accessMessage + "</p>" +
+        "<div class='quotes-section'>" +
+        "<h4>Daily Focus Reminders:</h4>" +
+        quotesHTML +
+        "</div>" +
+        "</div>";
 }
-  
- 
- // STORAGE DELETION ROUTINES
-
-function showCleanInputForm() {
-    welcomeMessage.classList.remove('hidden');
-    dashboardContent.classList.add('hidden');
-    resetBtn.classList.remove('hidden');
-    userForm.classList.remove('hidden');
-    userForm.reset(); 
-} 
-
-
-resetBtn.addEventListener('click', function() {
    
-    // .removeItem  
-    localStorage.removeItem('dc_name');
-    localStorage.removeItem('dc_age');
-    showCleanInputForm();
+
+// 4. Reset Button Functionality
+resetBtn.addEventListener('click', function() {
+    document.querySelector('input[type="text"]').value = '';
+    document.querySelector('input[type="number"]').value = '';
+    localStorage.clear(); // Clears saved data
+    document.getElementById('metricsOutput').innerHTML = <p>Welcome to DayPlan. Enter your data to begin designing your day.</p>;
 });

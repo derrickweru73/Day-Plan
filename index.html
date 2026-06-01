@@ -4,7 +4,8 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Day Plan Workspace</title>
-     <link rel="stylesheet" href="style.css">
+      <link rel="stylesheet" href="style.css">
+      <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
 </head>
 <body>
 
@@ -21,9 +22,9 @@
                     <label for="userAge">Current Age (Years)</label>
                     <input type="number" id="userAge" min="0" max="120" required placeholder="25">
                 </div>
-                <button type="submit" class="btn-submit">Craft My Dashboard</button>
-                <button id="resetBtn" class="btn-reset hidden">Reset Workspace</button>
-
+                <button type="button" class="btn-submit">Craft My Dashboard</button>
+                <button type="button" id="resetBtn">Reset Workspace</button>
+ 
  
             </form>
  
@@ -47,10 +48,40 @@
                 <h4>Daily Mantras for You:</h4>
                 <ul id="quoteContainer" class="quote-list"></ul>
             </div>
+            <div class="footer-col">
+                <h3>DayPlan Foundation Group</h3>
+                <p> Everything feels nice when you plan with us.</p>
+                <ul class="contact-list">
+                    <li><i class="fa-solid fa-location-dot"></i> Rongai, Nairobi</li>
+                    <li><i class="fa-solid fa-envelope"></i> @DayPlan.co.ke</li>
+                </ul>
+            </div>
+            
+                <div class="footer-legal-links">
+
+                <a href="#">Privacy Policy</a>
+                <a href="#">Terms of Service</a>
+                <a href="#">Contact Support</a>
+
+                </div>
+
+
+               <p class="footer-copyright">&copy; 2026 DayPlan Workspace. All rights reserved.</p>
+
+               <div class="footer-col">
+                <h4>follow</h4>
+                <div class="social-links">
+                    <a href="#"><i class="fa-brands fa-facebook"></i>
+                    <a href="#"><i class="fa-brands fa-instagram"></i>
+                    <a href="#"><i class="fa-brands fa-x-twitter"></i></a>
+                </div>
+    
+              </div>
+              
         </div>
     </div>
 
-    <!-- Links your external JavaScript logic file -->
+    
     <script src="script.js"></script>
 </body>
 </html>
